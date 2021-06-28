@@ -39,11 +39,12 @@ public class RVListOfStatesAdapter extends RecyclerView.Adapter<RVListOfStatesAd
         holder.stateNameAndIDTV.setText(idAndName);
 
         holder.stateNameAndIDTV.setOnClickListener(v -> {
-            if (holder.districtsRV.getVisibility() == View.GONE) {
-                holder.districtsRV.setVisibility(View.VISIBLE);
-            } else {
-                holder.districtsRV.setVisibility(View.GONE);
-            }
+            if (state.isExpanded())
+                state.setExpanded(false);
+            else
+                state.setExpanded(true);
+
+            notifyItemChanged(position);
         });
 
         RVListOfDistrictsAdapter adapter = new RVListOfDistrictsAdapter(state.getDistrictList().getDistricts());
@@ -51,6 +52,11 @@ public class RVListOfStatesAdapter extends RecyclerView.Adapter<RVListOfStatesAd
         holder.districtsRV.setAdapter(adapter);
 
         holder.districtsRV.setLayoutManager(new GridLayoutManager(holder.districtsRV.getContext(), 2));
+
+        if (state.isExpanded())
+            holder.districtsRV.setVisibility(View.VISIBLE);
+        else
+            holder.districtsRV.setVisibility(View.GONE);
 
     }
 

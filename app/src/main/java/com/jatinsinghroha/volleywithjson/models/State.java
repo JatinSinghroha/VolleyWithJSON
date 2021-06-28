@@ -12,6 +12,16 @@ public class State implements Serializable {
     @SerializedName("state_name")
     String stateName;
 
+    boolean isExpanded = false;
+
+    public boolean isExpanded() {
+        return isExpanded;
+    }
+
+    public void setExpanded(boolean expanded) {
+        isExpanded = expanded;
+    }
+
     ListOfDistricts mDistrictList = null;
 
     public ListOfDistricts getDistrictList() {
