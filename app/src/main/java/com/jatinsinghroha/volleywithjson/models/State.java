@@ -14,14 +14,6 @@ public class State implements Serializable {
 
     boolean isExpanded = false;
 
-    public boolean isExpanded() {
-        return isExpanded;
-    }
-
-    public void setExpanded(boolean expanded) {
-        isExpanded = expanded;
-    }
-
     ListOfDistricts mDistrictList = null;
 
     public ListOfDistricts getDistrictList() {
@@ -46,5 +38,13 @@ public class State implements Serializable {
 
     public void setStateName(String stateName) {
         this.stateName = stateName;
+    }
+
+    public boolean isExpanded() {
+        return isExpanded;
+    }
+
+    public void setExpanded(boolean expanded) {
+        isExpanded = expanded;
     }
 }
